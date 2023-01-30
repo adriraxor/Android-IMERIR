@@ -1,5 +1,11 @@
+/**
+ * @author Adrien FIGUERES
+ */
 package com.example.notesproject
 
+/**
+ * @author Adrien FIGUERES
+ */
 import android.content.Intent
 import android.os.Bundle
 import android.view.View

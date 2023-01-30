@@ -1,3 +1,6 @@
+/**
+ * @author Adrien FIGUERES
+ */
 package com.example.notesproject.Database
 
 import android.annotation.SuppressLint
