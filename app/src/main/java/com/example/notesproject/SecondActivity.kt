@@ -20,7 +20,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.notesproject.Class.Note
 import com.example.notesproject.Database.NoteDatabase
 
-
 class SecondActivity : AppCompatActivity() {
 
     lateinit var imPhoto: ImageView

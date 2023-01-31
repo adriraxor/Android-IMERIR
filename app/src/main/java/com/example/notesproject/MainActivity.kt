@@ -61,9 +61,8 @@ class MainActivity : AppCompatActivity() {
                 val position = viewHolder.adapterPosition
 
                 try{
-                    notes.removeAt(position)
                     db.deleteNoteById(notes[position].id)
-
+                    notes.removeAt(position)
                 } catch (e: IndexOutOfBoundsException) {
                     println("Plus d'élements [Out of bounds] " + position)
                 }
