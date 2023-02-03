@@ -6,11 +6,13 @@ package com.example.notesproject
 /**
  * @author Adrien FIGUERES
  */
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -18,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.notesproject.Class.Note
 import com.example.notesproject.Class.RecyclerViewAdapter
 import com.example.notesproject.Database.NoteDatabase
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 
 class MainActivity : AppCompatActivity() {
@@ -27,7 +30,7 @@ class MainActivity : AppCompatActivity() {
 
         //--- Layouts elements ---//
 
-        val btnAddNote: Button = findViewById(R.id.btnAddNote)
+        val btnAddNote: FloatingActionButton = findViewById(R.id.btnAddNote)
         val titleNote: EditText = findViewById(R.id.saNoteTitle)
         val recyclerView: RecyclerView = findViewById(R.id.recyclerView)
 
@@ -35,6 +38,7 @@ class MainActivity : AppCompatActivity() {
 
         var notes = ArrayList<Note>()
         val db: NoteDatabase = NoteDatabase(this)
+        val context: Context = this
 
         //--- récupération de toutes les notes issus de la base de données --//
 
@@ -63,6 +67,8 @@ class MainActivity : AppCompatActivity() {
                 try{
                     db.deleteNoteById(notes[position].id)
                     notes.removeAt(position)
+                    Toast.makeText(context, "La note a bien été supprimé !", Toast.LENGTH_SHORT).show()
+
                 } catch (e: IndexOutOfBoundsException) {
                     println("Plus d'élements [Out of bounds] " + position)
                 }
